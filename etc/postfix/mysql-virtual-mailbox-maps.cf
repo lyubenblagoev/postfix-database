@@ -1,0 +1,5 @@
+user = 
+password = 
+hosts = 127.0.0.1
+dbname = servermail
+query = select 1 from vw_user_logins where login = '%s'
