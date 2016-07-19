@@ -2,4 +2,4 @@ user =
 password = 
 hosts = 127.0.0.1
 dbname = servermail
-query = select email from vw_aliases where alias = '%s'
+query = select email from vw_aliases where alias = '%s' and enabled = 1
