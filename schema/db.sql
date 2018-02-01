@@ -44,7 +44,9 @@ CREATE TABLE recipient_bccs (
   enabled tinyint(1) DEFAULT '1',
   created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  UNIQUE KEY rbccs_account_id_receiver_email_address (account_id, receiver_email_address),
+  CONSTRAINT recipient_bccs_ibfk_1 FOREIGN KEY (account_id) REFERENCES accounts (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS sender_bccs;
