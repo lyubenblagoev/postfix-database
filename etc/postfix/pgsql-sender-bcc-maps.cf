@@ -1,0 +1,5 @@
+user = 
+password = 
+hosts = 127.0.0.1
+dbname = servermail
+query = select receiver_email_address from vw_sender_bccs where source_email_address = '%s' and enabled = true;

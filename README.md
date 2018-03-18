@@ -1,10 +1,10 @@
 # Postfix Database
 
-Configuration files and database schema for Postfix and Dovecot. 
+Configuration files and database schema dump for email server based on Postfix and Dovecot using PostgreSQL or MySQL database backend.
 
 # Installation
 
-You have to configure Postfix for virtual domains by setting the required `virtual_*` keys in main.cf and point them to the appropriate `mysql_*` files in the etc directory. Then configure Dovecot to use SQL authentication using the file in etc/dovecot.
+You need to configure Postfix for virtual domains by setting the required `virtual_*` keys in main.cf and point them to the appropriate `mysql_*` files (if you are using MySQL database) or `pgsql_*` files (for PostgreSQL). Then configure Dovecot to use SQL authentication using the file in etc/dovecot.
 
 Create a database that will hold the tables and views for your mail server and change the dbname, username and password in the configuration files accordingly.
 
