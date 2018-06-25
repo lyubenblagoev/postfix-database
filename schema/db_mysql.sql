@@ -1,3 +1,13 @@
+DROP TABLE IF EXISTS domains;
+CREATE TABLE domains (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name varchar(100) NOT NULL,
+  enabled tinyint(1) NOT NULL DEFAULT '1',
+  created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 DROP TABLE IF EXISTS accounts;
 CREATE TABLE accounts (
   id int(11) NOT NULL AUTO_INCREMENT,
@@ -24,16 +34,6 @@ CREATE TABLE aliases (
   PRIMARY KEY (id),
   KEY domain_id (domain_id),
   CONSTRAINT aliases_ibfk_1 FOREIGN KEY (domain_id) REFERENCES domains (id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS domains;
-CREATE TABLE domains (
-  id int(11) NOT NULL AUTO_INCREMENT,
-  name varchar(100) NOT NULL,
-  enabled tinyint(1) NOT NULL DEFAULT '1',
-  created timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS recipient_bccs;
