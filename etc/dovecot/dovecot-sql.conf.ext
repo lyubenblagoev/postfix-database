@@ -107,7 +107,7 @@ default_pass_scheme = SHA512-CRYPT
 #password_query = \
 #  SELECT username, domain, password \
 #  FROM users WHERE username = '%n' AND domain = '%d'
-password_query = select login as user, password from vw_user_logins where login = '%u';
+password_query = select login as user, password from vw_user_logins where login = '%u' and enabled = 't';
 
 # userdb query to retrieve the user information. It can return fields:
 #   uid - System UID (overrides mail_uid setting)
